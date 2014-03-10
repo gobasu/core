@@ -10,7 +10,7 @@ var path = require('path');
  * @type {exports|*}
  *  @final
  */
-var Application = function init() {
+var Application = function init(applicationDir) {
 
     var self = this;
 
@@ -18,10 +18,14 @@ var Application = function init() {
     var _assetsDir;
     var _moduleLoader;
 
-    var DIRNAME_THEMES = 'themes';
-    var DIRNAME_MODULES = 'module';
-    var DIRNAME_MODELS = 'model';
-    var DIRNAME_VIEWS = 'view';
+    //setup main application dir
+    _applicationDir = applicationDir;
+
+    //setup subdirs
+    self.themesDir = path.join(_applicationDir, Application.DIRNAME_THEMES);
+    self.modulesDir = path.join(_applicationDir, Application.DIRNAME_MODULES);
+    self.modelsDir = path.join(_applicationDir, Application.DIRNAME_MODELS);
+    self.viewsDir = path.join(_applicationDir, Application.DIRNAME_VIEWS);
 
     /**
      * Holds all events within application
@@ -42,31 +46,6 @@ var Application = function init() {
     self.ON_ERROR = 'onError';
 
     self.ON_HANDLER_NOT_FOUND = 'onHandlerNotFound';
-
-
-    /**
-     * Sets application's dir
-     *
-     * Application's dir must contain following sub-dirs
-     * - view (shared views)
-     * - model (shared models)
-     * - module
-     * - config
-     * - themes
-     *
-     * @param {String} dir
-     */
-    self.setApplicationDir = function (dir) {
-        _applicationDir = dir;
-
-        //setup subdirs
-        self.themesDir = path.join(_applicationDir, DIRNAME_THEMES);
-        self.modulesDir = path.join(_applicationDir, DIRNAME_MODULES);
-        self.modelsDir = path.join(_applicationDir, DIRNAME_MODELS);
-        self.viewsDir = path.join(_applicationDir, DIRNAME_VIEWS);
-
-    };
-
 
     self.setTheme = function (name) {
         self.themeName = 'default';
@@ -137,5 +116,9 @@ var Application = function init() {
 
 Application.ENV_HTTP = 'http';
 Application.ENV_CLI = 'cli';
+Application.DIRNAME_THEMES = 'themes';
+Application.DIRNAME_MODULES = 'module';
+Application.DIRNAME_MODELS = 'model';
+Application.DIRNAME_VIEWS = 'view';
 
 module.exports = Application;

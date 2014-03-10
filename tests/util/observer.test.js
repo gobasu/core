@@ -1,7 +1,7 @@
-var Observer = require('../src/nc/util/observer');
+var Observer = require('../../src/nc/util/observer');
 
-describe("nc.Observer suite", function() {
-    it("nc.Observer.listen", function() {
+describe("nc.util.Observer suite", function() {
+    it("Observer.listen", function() {
         var observer = new Observer();
         var listener = function() {};
         var listener2 = function() {};
@@ -22,7 +22,7 @@ describe("nc.Observer suite", function() {
 
     });
 
-    it("nc.Observer.unlisten", function() {
+    it("Observer.unlisten", function() {
         var observer = new Observer();
         var listener = function() {};
         var listener2 = function() {};
@@ -57,7 +57,7 @@ describe("nc.Observer suite", function() {
 
     });
 
-    it("nc.Observer.dispatch", function() {
+    it("Observer.dispatch", function() {
         var observer = new Observer();
         var observer2 = new Observer();
         var listenerCalled = 0;
@@ -102,7 +102,7 @@ describe("nc.Observer suite", function() {
 
     });
 
-    it("nc.Observer.extend", function() {
+    it("Observer.extend", function() {
 
         var ChildObserver = Observer.extend({
             sampleMethod: function() {}

@@ -1,4 +1,4 @@
-var Handlebars = require('../src/nc/app/view/renderer/handlebars');
+var Handlebars = require('../../../../src/nc/app/view/renderer/handlebars');
 
 var fs = require('fs');
 var path = require('path');

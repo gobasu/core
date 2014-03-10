@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "install": "npm install grunt --save-dev",
-    "test": "jasmine-node --matchall tests"
+    "test": "jasmine-node --verbose --matchall tests"
   },
   "repository": {
     "type": "git",

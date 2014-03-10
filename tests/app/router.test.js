@@ -1,6 +1,6 @@
-var Router = require('../src/nc/app/router');
+var Router = require('../../src/nc/app/router');
 
-describe("nc.Router suite", function() {
+describe("nc.app.Router suite", function() {
     var callbackValue;
     var routes = [
         'some/:module',
@@ -11,7 +11,7 @@ describe("nc.Router suite", function() {
         callbackValue++;
     }
 
-    it("Router - add", function() {
+    it("Router.add", function() {
 
         var router = new Router();
         router.add(routes[0], callbackFnc);
@@ -20,7 +20,7 @@ describe("nc.Router suite", function() {
         expect(router.has(routes[0], callbackFnc)).toBeTruthy();
     });
 
-    it("Router - remove", function() {
+    it("Router.remove", function() {
         var router = new Router();
         for (var r in routes) {
             router.add(routes[r], callbackFnc);
@@ -46,7 +46,7 @@ describe("nc.Router suite", function() {
 
     });
 
-    it("Router - match simple", function() {
+    it("Router.match - simple", function() {
         var router = new Router();
 
         router.add(routes[0], callbackFnc);
@@ -69,7 +69,7 @@ describe("nc.Router suite", function() {
 
     });
 
-    it("Router - test matching one optional parameters :p?", function() {
+    it("Router.match - optional params", function() {
         var result = false;
 
         var router = new Router();
@@ -87,7 +87,7 @@ describe("nc.Router suite", function() {
 
     });
 
-    it("Router - test matching multiple optional parameters :p?", function() {
+    it("Router.match - multiple optional parameters", function() {
         var result = false;
 
         var router = new Router();
@@ -126,7 +126,7 @@ describe("nc.Router suite", function() {
         expect(result.data.action).toEqual('action');
     });
 
-    it("Router - test matching wildcard", function() {
+    it("Router.match - wildcard", function() {
         var result = false;
         var router = new Router();
 
