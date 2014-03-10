@@ -4,7 +4,7 @@ var ModuleLoader = require('./module-loader');
 
 var fs = require('fs');
 var path = require('path');
-
+var dupa = 'piekna';
 /**
  * @todo: detect env (console or browser) and apply proper routing + disable/enable http server
  * @type {exports|*}
