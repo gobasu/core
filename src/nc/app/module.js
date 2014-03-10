@@ -141,11 +141,6 @@ var Module = function init(config, app, nc) {
         //controller[methodName].apply(controller, arguments);
     }
 
-    self.execute = function(controller, action) {
-
-    };
-
-
     self.onEvent = function(event) {
         if (event === 'onRequest') {
             return _handleHTTPRequest(arguments[1], arguments[2]);

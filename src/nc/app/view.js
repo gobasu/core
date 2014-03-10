@@ -43,9 +43,6 @@ var View = Class({
         var result = this._template(_.merge(this._data, {_options: this._options}));
 
         return result;
-    },
-    setLayout: function() {
-
     }
 });
 
